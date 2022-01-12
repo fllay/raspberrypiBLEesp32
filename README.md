@@ -1,62 +1,6 @@
 # raspberrypiBLEesp32
 
 
-```
-from bluepy import btle
-import time
-
-class MyDelegate(btle.DefaultDelegate):
-    def __init__(self):
-        btle.DefaultDelegate.__init__(self)
-        # ... initialise here
-
-    def handleNotification(self, cHandle, data):
-        #print("\n- handleNotification -\n")
-        print(data)
-        # ... perhaps check cHandle
-        # ... process 'data'
-
-# Initialisation  -------
-
-p = btle.Peripheral("8C:AA:B5:8C:B7:1A")   #NodeMCU-32S
-#p = btle.Peripheral("24:0a:c4:e8:0f:9a")   #ESP32-DevKitC V4
-
-# Setup to turn notifications on, e.g.
-svc = p.getServiceByUUID("6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
-ch_Tx = svc.getCharacteristics("6E400002-B5A3-F393-E0A9-E50E24DCCA9E")[0]
-ch_Rx = svc.getCharacteristics("6E400003-B5A3-F393-E0A9-E50E24DCCA9E")[0]
-
-p.setDelegate( MyDelegate())
-
-setup_data = b"\x01\00"
-p.writeCharacteristic(ch_Rx.valHandle+1, setup_data)
-
-lasttime = time.localtime()
-
-while True:
-    """
-    if p.waitForNotifications(1.0):
-        pass  #continue
-
-    print("Waiting...")
-    """
-    
-    nowtime = time.localtime()
-    if(nowtime > lasttime):
-        lasttime = nowtime
-        stringtime = time.strftime("%H:%M:%S", nowtime)
-        btime = bytes(stringtime, 'utf-8')
-        try:
-            ch_Tx.write(btime, True)
-        except btle.BTLEException:
-            print("btle.BTLEException");
-        #print(stringtime)
-        #ch_Tx.write(b'wait...', True)
-        
-    # Perhaps do something else here
-```
-
-
 ESP32 Arduino code
 
 ```
@@ -208,3 +152,77 @@ void loop() {
     }
 }
 ```
+
+
+```
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0018,len:4
+load:0x3fff001c,len:1044
+load:0x40078000,len:10124
+load:0x40080400,len:5856
+entry 0x400806a8
+BT MAC: 8C:AA:B5:8C:B7:1A
+Waiting a client connection to notify...
+
+```
+
+
+```
+from bluepy import btle
+import time
+
+class MyDelegate(btle.DefaultDelegate):
+    def __init__(self):
+        btle.DefaultDelegate.__init__(self)
+        # ... initialise here
+
+    def handleNotification(self, cHandle, data):
+        #print("\n- handleNotification -\n")
+        print(data)
+        # ... perhaps check cHandle
+        # ... process 'data'
+
+# Initialisation  -------
+
+p = btle.Peripheral("8C:AA:B5:8C:B7:1A")   #NodeMCU-32S
+#p = btle.Peripheral("24:0a:c4:e8:0f:9a")   #ESP32-DevKitC V4
+
+# Setup to turn notifications on, e.g.
+svc = p.getServiceByUUID("6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
+ch_Tx = svc.getCharacteristics("6E400002-B5A3-F393-E0A9-E50E24DCCA9E")[0]
+ch_Rx = svc.getCharacteristics("6E400003-B5A3-F393-E0A9-E50E24DCCA9E")[0]
+
+p.setDelegate( MyDelegate())
+
+setup_data = b"\x01\00"
+p.writeCharacteristic(ch_Rx.valHandle+1, setup_data)
+
+lasttime = time.localtime()
+
+while True:
+    """
+    if p.waitForNotifications(1.0):
+        pass  #continue
+
+    print("Waiting...")
+    """
+    
+    nowtime = time.localtime()
+    if(nowtime > lasttime):
+        lasttime = nowtime
+        stringtime = time.strftime("%H:%M:%S", nowtime)
+        btime = bytes(stringtime, 'utf-8')
+        try:
+            ch_Tx.write(btime, True)
+        except btle.BTLEException:
+            print("btle.BTLEException");
+        #print(stringtime)
+        #ch_Tx.write(b'wait...', True)
+        
+    # Perhaps do something else here
+```
+
+
