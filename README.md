@@ -177,25 +177,13 @@ void loop() {
 }
 ```
 
-
-
-
-```
-rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:1
-load:0x3fff0018,len:4
-load:0x3fff001c,len:1044
-load:0x40078000,len:10124
-load:0x40080400,len:5856
-entry 0x400806a8
-BT MAC: 8C:AA:B5:8C:B7:1A
-Waiting a client connection to notify...
-
-```
+After BLE server starts, the serial terninal will show that it is waiting for connection.
 
 ![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/Screen%20Shot%202565-01-17%20at%2015.31.45.png?raw=true)
+
+
+Now we are readly for python code on Raspbery pi. The required package, bluepy , can ne install by using command `sudo pip3 install bluepy`. 
+
 
 ```
 from bluepy import btle
