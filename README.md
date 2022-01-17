@@ -171,7 +171,8 @@ void loop() {
     // do stuff here on connecting
         oldDeviceConnected = deviceConnected;
     }
-}```
+}
+```
 
 
 ```
