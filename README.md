@@ -177,7 +177,7 @@ void loop() {
 }
 ```
 
-After BLE server starts, the serial terninal will show that it is waiting for connection.
+After BLE server starts, the serial terninal will show that it is waiting for connection. It can be seen that the BLE MAC address is also shown in the terminal. This MAC address will be used later in python code for making a connection. In this example, the MAC address is `8C:AA:B5:8C:B7:1A`
 
 ![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/Screen%20Shot%202565-01-17%20at%2015.31.45.png?raw=true)
 
