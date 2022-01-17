@@ -6,7 +6,7 @@ BLE protocol stack is shown below.
 ![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/BLEprotocol.png?raw=true)
 BLE Protocol stack
 
-The process to establish the BLE link is shown below. When the peripheral is turn on, it will start advitise (broadcast) the services. Then, the central device  (Raspberry pi) will scan for BLE broadcasting signal to check for matching service by checking service UUID.
+The process to establish the BLE link is shown below. When the peripheral is turn on, it will start advitise (broadcast) the services. Then, the central device  (Raspberry pi) will scan for BLE broadcasting signal to check for matching service by checking service UUID. Characteristics whithin the service are where the data is stored. They act like variables for exchnaging data. There are three types of commands to exchange data between peripherals and the central. The `write` command is used for sending data from central to peripheral.     
 ![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/BLErpikb.png?raw=true)
 
 
