@@ -1,5 +1,12 @@
 # raspberrypiBLEesp32
+To create communication between a raspberry pi (e.g. Kidbright AI bot, box) and a Kidbright32 board, we can use GATT BLE since it does not require paring process. It can only use MAC address and UUIDs to establish a link between the raspberry pi and the Kidbright32 board. 
 
+BLE protocol stack is shown below. 
+
+![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/BLEprotocol.png?raw=true)
+BLE Protocol stack
+
+The process to establish the BLE link is shown below. When the peripheral is turn on, it will start advitise (broadcast) the services. Then, the central device  (Raspberry pi) will scan for BLE broadcasting signal to check for matching service by checking service UUID.
 ![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/BLErpikb.png?raw=true)
 
 
