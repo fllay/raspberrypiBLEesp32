@@ -12,6 +12,8 @@ The process to establish the BLE link is shown below. When the peripheral is tur
 ![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/BLErpikb.png?raw=true)
 
 
+
+
 Let us start with ESP32 (Kidbright32 board) code. The following scketch will create a BLE server on Kidbright32 board. User can send data using serial command on Ardiono IDE serial terminal. 
 
 ESP32 Arduino code for BLE server
@@ -193,6 +195,7 @@ Waiting a client connection to notify...
 
 ```
 
+![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/Screen%20Shot%202565-01-17%20at%2015.31.45.png?raw=true)
 
 ```
 from bluepy import btle
