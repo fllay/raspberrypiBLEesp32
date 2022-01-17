@@ -143,11 +143,20 @@ void setup() {
 
 void loop() {
 
-    if (deviceConnected) {
+    /*if (deviceConnected) {
         pTxCharacteristic->setValue(&txValue, 1);
         pTxCharacteristic->notify();
         txValue++;
-    delay(10); // bluetooth stack will go into congestion, if too many packets are sent
+    delay(1000); // bluetooth stack will go into congestion, if too many packets are sent
+  }*/
+  
+  if (deviceConnected) {
+    if (Serial.available()){
+      char ch = Serial.read();
+      txValue = (uint8_t) ch;
+      pTxCharacteristic->setValue(&txValue, 1);
+      pTxCharacteristic->notify();
+    }
   }
 
     // disconnecting
@@ -162,8 +171,7 @@ void loop() {
     // do stuff here on connecting
         oldDeviceConnected = deviceConnected;
     }
-}
-```
+}```
 
 
 ```
