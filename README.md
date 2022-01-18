@@ -276,4 +276,15 @@ while True:
     # Perhaps do something else here
 ```
 
+This code will send date-time to the BLE peripheral (Kidbright32 board) every 1 second. Once run this code at the terminal.
+
+```
+pi@KidBrightAI02:~/python$ python3 bleuart.py
+
+```
+
+The serial monitor will show somthing like this.
+
+
+
 
