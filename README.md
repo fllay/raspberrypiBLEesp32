@@ -184,7 +184,8 @@ After BLE server starts, the serial terninal will show that it is waiting for co
 
 Now we are readly for python code on Raspbery pi. The required package, bluepy , can ne install by using command `sudo pip3 install bluepy`. The output is somewhat similar to the following
 
-``pi@KidBrightAI02:~$ sudo pip3 install bluepy
+```
+pi@KidBrightAI02:~$ sudo pip3 install bluepy
 WARNING: The directory '/home/pi/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
 Collecting bluepy
   Downloading bluepy-1.3.0.tar.gz (217 kB)
