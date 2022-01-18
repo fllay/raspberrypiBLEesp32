@@ -186,6 +186,7 @@ Now we are readly for python code on Raspbery pi. The required package, bluepy ,
 - BLE MAC Address
 - Service UUID
 - Characteristic UUIDs
+
 These values need to be matched with the values in Arduino code. For this example,
 - BLE MAC Address is 8C:AA:B5:8C:B7:1A
 - Service UUID is 6E400001-B5A3-F393-E0A9-E50E24DCCA9E
