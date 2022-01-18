@@ -182,8 +182,24 @@ After BLE server starts, the serial terninal will show that it is waiting for co
 ![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/Screen%20Shot%202565-01-17%20at%2015.31.45.png?raw=true)
 
 
-Now we are readly for python code on Raspbery pi. The required package, bluepy , can ne install by using command `sudo pip3 install bluepy`. 
+Now we are readly for python code on Raspbery pi. The required package, bluepy , can ne install by using command `sudo pip3 install bluepy`. To create BLE client on the Raspberry pi, we need to set the following values for connection.
+- BLE MAC Address
+- Service UUID
+- Characteristic UUIDs
+These values need to be matched with the values in Arduino code. For this example,
+- BLE MAC Address is 8C:AA:B5:8C:B7:1A
+- Service UUID is 6E400001-B5A3-F393-E0A9-E50E24DCCA9E
+- Characteristic UUIDs are 6E400002-B5A3-F393-E0A9-E50E24DCCA9E, 6E400003-B5A3-F393-E0A9-E50E24DCCA9E
+Hence, python code for BLE connection initialization is 
+```
+p = btle.Peripheral("8C:AA:B5:8C:B7:1A")   
 
+# Setup to turn notifications on, e.g.
+svc = p.getServiceByUUID("6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
+ch_Tx = svc.getCharacteristics("6E400002-B5A3-F393-E0A9-E50E24DCCA9E")[0]
+ch_Rx = svc.getCharacteristics("6E400003-B5A3-F393-E0A9-E50E24DCCA9E")[0]
+```
+Complete python code is given below.
 
 ```
 from bluepy import btle
