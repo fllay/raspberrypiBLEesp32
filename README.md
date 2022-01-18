@@ -198,7 +198,7 @@ Installing collected packages: bluepy
 Successfully installed bluepy-1.3.0
 WARNING: You are using pip version 20.3.1; however, version 21.3.1 is available.
 You should consider upgrading via the '/usr/bin/python3 -m pip install --upgrade pip' command.
-``
+```
 
 To create BLE client on the Raspberry pi, we need to set the following values for connection.
 - BLE MAC Address
