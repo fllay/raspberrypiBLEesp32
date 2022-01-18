@@ -289,6 +289,7 @@ The serial monitor will show somthing like this.
 
 
 Data can be sent to BLE client (Raspberry pi) by using the serial terminal. For example, if we put "Eru" in the serial terminal and click `Send`.
+
 ![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/Screen%20Shot%202565-01-18%20at%2009.56.07.png?raw=true)
 
 At the terminal, we will see the follwing.
