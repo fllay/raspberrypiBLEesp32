@@ -276,4 +276,29 @@ while True:
     # Perhaps do something else here
 ```
 
+This code will send date-time to the BLE peripheral (Kidbright32 board) every 1 second. Once run this code at the terminal.
+
+```
+pi@KidBrightAI02:~/python$ python3 bleuart.py
+
+```
+
+The serial monitor will show somthing like this.
+
+![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/Screen%20Shot%202565-01-18%20at%2009.57.37.png?raw=true)
+
+
+Data can be sent to BLE client (Raspberry pi) by using the serial terminal. For example, if we put "Eru" in the serial terminal and click `Send`.
+
+![alt text](https://github.com/fllay/raspberrypiBLEesp32/blob/main/images/Screen%20Shot%202565-01-18%20at%2009.56.07.png?raw=true)
+
+At the terminal, we will see the follwing.
+
+```
+pi@KidBrightAI02:~/python$ python3 bleuart.py
+b'E'
+b'r'
+b'u'
+b'\n'
+```
 
